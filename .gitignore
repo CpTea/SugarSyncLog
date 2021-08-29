@@ -1,0 +1,11 @@
+build
+bin
+3rdparty
+lib/
+*.pdb
+*.exe
+*.dll
+*.lib
+*.so
+*.a
+*.exp
