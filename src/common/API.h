@@ -14,15 +14,15 @@
 
 #ifdef _MSC_VER
 #ifdef _EXPORT
-#define __API __declspec(dllexport)
+#define SUGAR_API __declspec(dllexport)
 #else
-#define __API __declspec(dllimport)
+#define SUGAR_API __declspec(dllimport)
 #endif
-#define __INT
+#define SUGAR_INT
 
 #else
-#define __API __attribute((visibility("default")))
-#define __INT __attribute((visibility("hidden")))
+#define SUGAR_API __attribute((visibility("default")))
+#define SUGAR_INT __attribute((visibility("hidden")))
 #endif
 
 #endif

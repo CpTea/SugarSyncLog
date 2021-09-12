@@ -12,21 +12,21 @@
 #ifndef __SUGARSYNCLOG_SUGAR_SYNC_LOG_H__
 #define __SUGARSYNCLOG_SUGAR_SYNC_LOG_H__
 
-#include "LogTracker.h"
-#include "LogTrackerLevel.h"
-#include "MessageType.h"
+#ifdef _MSC_VER
+#ifdef SUGAR_EXPORT
+#define SUGAR_API __declspec(dllexport)
+#else
+#define SUGAR_API __declspec(dllimport)
+#endif
+#define SUGAR_INT
+#else
+#define SUGAR_API __attribute((visibility("default")))
+#define SUGAR_INT __attribute((visibility("hidden")))
+#endif
 
-namespace sugar {
-namespace synclog {
-class LogManger {
- public:
-  LogManger();
-  ~LogManger();
+#include <SugarSyncLogManager.h>
 
- private:
-  
-};
-}  // namespace synclog
-}  // namespace sugar
+class SUGAR_INT sugar::sync::log::FileLogger;
+class SUGAR_API sugar::sync::log::Logger;
 
 #endif
