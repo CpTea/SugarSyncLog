@@ -1,8 +1,10 @@
-#include "SugarSyncLogManager.h"
+#include "Logger.h"
 
 #include <chrono>
 #include <iomanip>
 #include <sstream>
+
+#include "common/StringHelper.h"
 
 using namespace sugar::sync::log;
 
@@ -15,5 +17,6 @@ std::string Logger::format(const char* target, const char* message,
 
   std::stringstream strstream;
   strstream << std::put_time(std::localtime(&t), "%Y/%m/%d %H:%M:%S");
-  return sugar::format(fmt, strstream.str().c_str(), target, tid, pid, line, file, func, message);
+  return sugar::format(fmt, strstream.str().c_str(), target, tid, pid, line,
+                       file, func, message);
 }

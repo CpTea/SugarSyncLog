@@ -9,8 +9,10 @@
  *
  */
 
-#ifndef __SUGARSYNCLOG_SUGAR_SYNC_LOG_H__
-#define __SUGARSYNCLOG_SUGAR_SYNC_LOG_H__
+#ifndef __SUGAR_SYNC_LOG_SUGARSYNCLOG_H__
+#define __SUGAR_SYNC_LOG_SUGARSYNCLOG_H__
+
+#include <iostream>
 
 #ifdef _MSC_VER
 #ifdef SUGAR_EXPORT
@@ -24,9 +26,26 @@
 #define SUGAR_INT __attribute((visibility("hidden")))
 #endif
 
-#include <SugarSyncLogManager.h>
+namespace sugar {
+namespace sync {
+namespace log {
+enum class SUGAR_API LogTarget { None = 0x00, File = 0x01, Console = 0x02 };
 
-class SUGAR_INT sugar::sync::log::FileLogger;
-class SUGAR_API sugar::sync::log::Logger;
+enum class SUGAR_API LogLevel {
+  None,
+  Error,
+  Warning,
+  Debug,
+  Info,
+};
+
+class SUGAR_API HelloWorldHelper {
+ public:
+  void Print() const { std::cout << "Hello World!" << std::endl; }
+};
+
+}  // namespace log
+}  // namespace sync
+}  // namespace sugar
 
 #endif

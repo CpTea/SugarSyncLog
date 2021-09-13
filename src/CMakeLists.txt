@@ -1,14 +1,19 @@
 set(target_name SugarSyncLog)
 set(global_include_dir ${${PROJECT_NAME}_SOURCE_DIR}/include)
 set(internal_include_dir ${${PROJECT_NAME}_SOURCE_DIR}/src)
+# set(output_dir ${${PROJECT_NAME}_SOURCE_DIR}/bin)
 
 add_library(
     ${target_name} SHARED
-    SugarSyncLog.cpp
-    SugarFileLogger.cpp
-    SugarSyncLogManager.cpp
     ${global_include_dir}/SugarSyncLog.h
-    ${global_include_dir}/SugarSyncLogManager.h)
+    SugarSyncLog.cpp
+    common/StringHelper.h
+    logger/Logger.h
+    logger/Logger.cpp
+    logger/FileLogger.h
+    logger/FileLogger.cpp
+    LogManager.h
+    LogManager.cpp)
 
 target_include_directories(
     ${target_name} 
@@ -22,3 +27,7 @@ target_compile_definitions(
     PRIVATE SUGAR_EXPORT
     PRIVATE _UNICODE
     PRIVATE UNICODE)
+
+# target_link_directories(
+#     ${target_name} 
+#     PUBLIC ${output_dir})

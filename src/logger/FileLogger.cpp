@@ -1,5 +1,8 @@
-#include <SugarSyncLogManager.h>
+#include "FileLogger.h"
+
 #include <iostream>
+
+#include "common/StringHelper.h"
 
 using namespace sugar::sync::log;
 
