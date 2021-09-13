@@ -20,10 +20,12 @@ namespace log {
 class FileLogger : public Logger {
  public:
   void write(const char* target, const char* message) override;
+  void setStorageDirectory(const std::string& directory);
+  std::string getSotrageDirectory() const;
 
  private:
   std::string _storageDirectory;
-  std::string _storageFileName;
+  // std::string _storageFileName;
 };
 }  // namespace log
 }  // namespace sync
