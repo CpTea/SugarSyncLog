@@ -5,17 +5,23 @@ set(output_dir ${${PROJECT_NAME}_SOURCE_DIR}/bin)
 
 add_library(
     ${target_name} SHARED
-    common/FormatHelper.hpp
-    common/LogTarget.h
-    common/LogLevel.h
     ${global_include_dir}/SugarSyncLog.h
     SugarSyncLog.cpp
+
+    common/FormatHelper.h
+    common/FormatHelper.cpp
+    common/LogTarget.h
+    common/LogLevel.h
+    common/LoggerType.h
+    
     logger/Logger.h
     logger/Logger.cpp
     logger/FileLogger.h
     logger/FileLogger.cpp
+    
     LogManager.h
-    LogManager.cpp)
+    LogManager.cpp
+    )
 
 target_include_directories(
     ${target_name} 

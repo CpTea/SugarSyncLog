@@ -1,17 +1,19 @@
 /**
  * @file LogTarget.h
  * @author cptea
- * @brief 
+ * @brief
  * @version 1.0.0
- * @date 2021-09-14 
+ * @date 2021-09-14
  */
-
+#pragma once
 #ifndef __SUGAR_FORMATHELPER_H__
 #define __SUGAR_FORMATHELPER_H__
 #include <ctime>
-#include <iomanip>
-#include <sstream>
 #include <string>
+#include <memory>
+
+
+#include "LogTarget.h"
 
 namespace sugar {
 template <typename... Args>
@@ -23,15 +25,9 @@ std::string formatString(const std::string& fmt, Args... args) {
 }
 
 std::string formatDateTime(const tm& dateTime,
-                           const char* fmt = "%Y/%m/%d %H:%M:%S") {
-  std::stringstream strstream;
-  strstream << std::put_time(&dateTime, fmt);
-  return strstream.str();
-}
+                           const char* fmt = "%Y/%m/%d %H:%M:%S");
 
-std::string formatTarget(const int& target) {
-  
-}
+std::string formatTarget(const int& target);
 
 }  // namespace sugar
 

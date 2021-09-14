@@ -24,7 +24,6 @@ class FileLogger : public Logger {
 
  private:
   std::string _storageDirectory;
-  // std::string _storageFileName;
 };
 }  // namespace log
 }  // namespace sync

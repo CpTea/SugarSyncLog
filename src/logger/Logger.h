@@ -22,8 +22,8 @@ class Logger {
   virtual ~Logger();
   virtual std::string format(int target, const char* message,
                              const char* file, const char* func, int line,
-                             int tid, int pid);
-
+                             int pid, int tid);
+  
   int getLogLevel() const;
   void setLogLevel(int level);
 

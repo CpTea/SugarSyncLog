@@ -13,6 +13,8 @@
 #define __SUGAR_SYNC_LOG_SUGARSYNCLOG_H__
 
 #include <iostream>
+#include <common/LogLevel.h>
+#include <common/LoggerType.h>
 
 #ifdef _MSC_VER
 #ifdef SUGAR_EXPORT
@@ -29,20 +31,7 @@
 namespace sugar {
 namespace sync {
 namespace log {
-enum class SUGAR_API LogTarget { None = 0x00, File = 0x01, Console = 0x02 };
-
-enum class SUGAR_API LogLevel {
-  None,
-  Error,
-  Warning,
-  Debug,
-  Info,
-};
-
-class SUGAR_API HelloWorldHelper {
- public:
-  void Print() const { std::cout << "Hello World!" << std::endl; }
-};
+  
 
 }  // namespace log
 }  // namespace sync
