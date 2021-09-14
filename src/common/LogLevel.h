@@ -6,4 +6,9 @@
  * @date 2021-09-14 
  */
 
-#include "LogManager.h"
+#ifndef __LOGLEVEL_H__
+#define __LOGLEVEL_H__
+
+
+
+#endif

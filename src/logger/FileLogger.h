@@ -1,12 +1,9 @@
 /**
- * @file FileLogger.h
+ * @file LogTarget.h
  * @author cptea
- * @brief Save log to a local file
+ * @brief 
  * @version 1.0.0
- * @date 2021-09-13
- *
- * @copyright Copyright (c) 2021 cptea
- *
+ * @date 2021-09-14 
  */
 
 #ifndef __SUGAR_SYNC_LOG_FILELOGGER_H__
@@ -19,7 +16,9 @@ namespace sync {
 namespace log {
 class FileLogger : public Logger {
  public:
-  void write(const char* target, const char* message) override;
+  FileLogger(int level);
+  void write(int target, const char* message) override;
+
   void setStorageDirectory(const std::string& directory);
   std::string getSotrageDirectory() const;
 

@@ -1,22 +1,33 @@
+/**
+ * @file LogTarget.h
+ * @author cptea
+ * @brief 
+ * @version 1.0.0
+ * @date 2021-09-14 
+ */
+
 #include "Logger.h"
 
 #include <chrono>
-#include <iomanip>
-#include <sstream>
 
-#include "common/StringHelper.h"
+#include "common/FormatHelper.hpp"
 
 using namespace sugar::sync::log;
 
-std::string Logger::format(const char* target, const char* message,
+Logger::~Logger() {}
+
+std::string Logger::format(int target, const char* message,
                            const char* file, const char* func, int line,
                            int tid, int pid) {
   const char* fmt = "[%s] [%5s] [TID:%04x] [PID:%04x] %s.%s %08x: %s\n";
   auto t =
       std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-
-  std::stringstream strstream;
-  strstream << std::put_time(std::localtime(&t), "%Y/%m/%d %H:%M:%S");
-  return sugar::format(fmt, strstream.str().c_str(), target, tid, pid, line,
-                       file, func, message);
+  const char* datetime =
+      sugar::formatDateTime(*std::localtime(&t), "%Y/%m/%d %H:%M:%S").c_str();
+  return sugar::formatString(fmt, datetime, target, tid, pid, line, file, func,
+                             message);
 }
+
+int Logger::getLogLevel() const { return _level; }
+
+void Logger::setLogLevel(int level) { _level = level; }

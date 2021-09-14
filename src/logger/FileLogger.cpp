@@ -1,16 +1,42 @@
+/**
+ * @file LogTarget.h
+ * @author cptea
+ * @brief 
+ * @version 1.0.0
+ * @date 2021-09-14 
+ */
+
 #include "FileLogger.h"
 
-#include <iostream>
+#include <filesystem>
+// #include <iostream>
+#include <fstream>
 
-#include "common/StringHelper.h"
+#include "common/FormatHelper.hpp"
+
 
 using namespace sugar::sync::log;
 
-void FileLogger::write(const char* target, const char* message) {
-  std::cout << format(target, message, 0, 0, 0, 0, 0);
+FileLogger::FileLogger(int level) { setLogLevel(level); }
+
+void FileLogger::write(int target, const char* message) {
+  if (target)
+
+
+  if (_storageDirectory[_storageDirectory.length() - 1] == '\\' ||
+      _storageDirectory[_storageDirectory.length() - 1] == '/') {
+    _storageDirectory.pop_back();
+  }
+  std::string logDir = _storageDirectory + "/log";
+  std::filesystem::create_directories(logDir);
+  auto t =
+      std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+  auto filename = formatDateTime(*std::localtime(&t), "%F") + ".log";
+  std::ofstream outputFileSteam(filename, std::ios::app);
+  outputFileSteam << format(target, message)
 }
 
-std::string inline FileLogger::getSotrageDirectory() const{
+std::string inline FileLogger::getSotrageDirectory() const {
   return _storageDirectory;
 }
 

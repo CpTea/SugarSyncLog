@@ -1,12 +1,9 @@
 /**
- * @file LogManager.h
+ * @file LogTarget.h
  * @author cptea
- * @brief Manage different types of loggers
+ * @brief 
  * @version 1.0.0
  * @date 2021-08-30
- *
- * @copyright Copyright (c) 2021 cptea
- *
  */
 
 #ifndef __SUGAR_SYNC_LOG_LOGMANAGER_H__

@@ -1,16 +1,14 @@
 /**
- * @file SugarLogger.h
+ * @file LogTarget.h
  * @author cptea
- * @brief Base class for logger
+ * @brief 
  * @version 1.0.0
- * @date 2021-09-13
- *
- * @copyright Copyright (c) 2021 cptea
- *
+ * @date 2021-09-14 
  */
 
 #ifndef __SUGAR_SYNC_LOG_LOGGER_H__
 #define __SUGAR_SYNC_LOG_LOGGER_H__
+#include <ctime>
 #include <string>
 
 namespace sugar {
@@ -19,17 +17,18 @@ namespace log {
 
 class Logger {
  public:
-  virtual void write(const char* target, const char* message) = 0;
-  
-  virtual ~Logger(){};
-  virtual std::string format(const char* target, const char* message,
+  virtual void write(int target, const char* message) = 0;
+
+  virtual ~Logger();
+  virtual std::string format(int target, const char* message,
                              const char* file, const char* func, int line,
                              int tid, int pid);
-  // virtual LogLevel getLogLevel() const;
-  // virtual void setLogLevel(const LogLevel& level = LogLevel::Debug);
 
-//  protected:
-  // LogLevel _level;
+  int getLogLevel() const;
+  void setLogLevel(int level);
+
+ private:
+  int _level;
 };
 }  // namespace log
 }  // namespace sync
