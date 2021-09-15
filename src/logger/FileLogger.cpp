@@ -45,6 +45,6 @@ void FileLogger::setStorageDirectory(const std::string& directory) {
       _storageDirectory[_storageDirectory.length() - 1] == '/') {
     _storageDirectory.pop_back();
   }
-  _storageDirectory += "/log";
+  _storageDirectory += "/log/";
   std::filesystem::create_directories(_storageDirectory);
 }
