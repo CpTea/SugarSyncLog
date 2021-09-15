@@ -9,7 +9,7 @@
 #ifndef __LOGGERTYPE_H__
 #define __LOGGERTYPE_H__
 
-#define LOGGER_NONE 0x00
+// #define LOGGER_NONE 0x00
 #define LOGGER_FILE 0x01
 #define LOGGER_CONSOLE 0x02
 

@@ -7,3 +7,12 @@
  */
 
 #include "SugarSyncLog.h"
+#include "LogManager.h"
+
+SugarSyncLog* getSugarSyncLog() {
+  return &sugar::sync::log::LogManager::getInstance();
+}
+
+void releaseSugarSyncLog(SugarSyncLog* instance) {
+  // delete 
+}

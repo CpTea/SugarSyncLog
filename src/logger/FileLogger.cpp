@@ -6,6 +6,9 @@
  * @date 2021-09-14
  */
 
+// #define _CRT_SECURE_NO_WARNINGS
+
+
 #include "FileLogger.h"
 
 #include <filesystem>
@@ -17,6 +20,7 @@ using namespace sugar::sync::log;
 
 FileLogger::FileLogger(int level) {
   setLogLevel(level);
+  setStorageDirectory(".");
   // setStorageDirectory(".");
 }
 

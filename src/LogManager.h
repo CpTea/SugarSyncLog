@@ -8,10 +8,10 @@
 
 #ifndef __SUGAR_SYNC_LOG_LOGMANAGER_H__
 #define __SUGAR_SYNC_LOG_LOGMANAGER_H__
-
 #include <string>
 #include <vector>
 
+#include "SugarSyncLog.h"
 #include "common/LogLevel.h"
 #include "logger/Logger.h"
 
@@ -20,23 +20,23 @@ namespace sugar {
 namespace sync {
 namespace log {
 
-class LogManager {
+class LogManager : public SugarSyncLog {
  public:
-  // LogManager& getInstance();
-  static void enable(int loggerType, int logLevel);
-  static void disable();
+  static LogManager& getInstance();
+  void enable(int loggerType, int logLevel) override;
+  void disable() override;
+  void writeDebug(const char* message) override;
 
  private:
-  LogManager() = default;
   ~LogManager();
+  LogManager() = default;
   LogManager(const LogManager&) = delete;
   LogManager& operator=(const LogManager&) = delete;
 
-  static void write(int target, const std::string& message,
-                    const std::string& file, const std::string& func,
-                    const int& line, const int& pid, const int& tid);
+  void write(int target, const char* message, char* file, const char* func,
+             int line);
 
-  static std::vector<Logger*> _loggers;
+  std::vector<Logger*> _loggers;
 };
 
 }  // namespace log

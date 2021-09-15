@@ -18,11 +18,11 @@
 //   Debug,
 // };
 
-#define LOG_NONE 0x00
-#define LOG_FATAL 0x01
-#define LOG_ERROR 0x02
-#define LOG_WARN 0x03
-#define LOG_INFO 0x04
-#define LOG_DEBUG 0x05
+#define LEVEL_NONE 0x00
+#define LEVEL_FATAL 0x01
+#define LEVEL_ERROR 0x02
+#define LEVEL_WARN 0x03
+#define LEVEL_INFO 0x04
+#define LEVEL_DEBUG 0x05
 
 #endif

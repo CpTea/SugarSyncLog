@@ -1,9 +1,9 @@
 /**
  * @file LogTarget.h
  * @author cptea
- * @brief 
+ * @brief
  * @version 1.0.0
- * @date 2021-09-14 
+ * @date 2021-09-14
  */
 
 #ifndef __SUGAR_SYNC_LOG_LOGGER_H__
@@ -20,10 +20,10 @@ class Logger {
   virtual void write(int target, const char* message) = 0;
 
   virtual ~Logger();
-  virtual std::string format(int target, const char* message,
-                             const char* file, const char* func, int line,
-                             int pid, int tid);
-  
+
+  static std::string formatMessage(int target, const char* message,
+                                   const char* file, const char* func,
+                                   int line);
   int getLogLevel() const;
   void setLogLevel(int level);
 
