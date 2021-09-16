@@ -17,7 +17,7 @@ namespace log {
 class FileLogger : public Logger {
  public:
   FileLogger(int level);
-  void write(int target, const char* message) override;
+  void write(int target, const std::string& message) override;
 
   void setStorageDirectory(const std::string& directory);
   std::string getSotrageDirectory() const;

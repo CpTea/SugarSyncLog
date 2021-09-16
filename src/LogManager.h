@@ -33,8 +33,8 @@ class LogManager : public SugarSyncLog {
   LogManager(const LogManager&) = delete;
   LogManager& operator=(const LogManager&) = delete;
 
-  void write(int target, const char* message, char* file, const char* func,
-             int line);
+  void write(int target, const std::string& message, const std::string& file,
+             const std::string& func, int line);
 
   std::vector<Logger*> _loggers;
 };

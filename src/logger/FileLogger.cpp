@@ -24,12 +24,10 @@ FileLogger::FileLogger(int level) {
   // setStorageDirectory(".");
 }
 
-void FileLogger::write(int target, const char* message) {
+void FileLogger::write(int target, const std::string& message) {
   if (target < getLogLevel()) return;
-  auto t =
-      std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
   auto filename = getSotrageDirectory() +
-                  sugar::formatDateTime(*std::localtime(&t), "%F") + ".log";
+                  std::format("{:%F}", std::chrono::system_clock::now()) + ".log";
   std::ofstream outputFileSteam(filename, std::ios::app);
   outputFileSteam << message;
   outputFileSteam.close();

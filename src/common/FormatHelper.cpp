@@ -1,14 +1,14 @@
 #include "FormatHelper.h"
 
-#include <iomanip>
-#include <sstream>
+// #include <iomanip>
+// #include <sstream>
 
 
-std::string sugar::formatDateTime(const tm& dateTime, const char* fmt) {
-  std::stringstream strstream;
-  strstream << std::put_time(&dateTime, fmt);
-  return strstream.str();
-}
+// std::string sugar::formatDateTime(const tm& dateTime, const char* fmt) {
+//   std::stringstream strstream;
+//   strstream << std::put_time(&dateTime, fmt);
+//   return strstream.str();
+// }
 
 std::string sugar::formatTarget(const int& target) {
   switch (target) {

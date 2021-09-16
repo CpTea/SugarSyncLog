@@ -17,12 +17,12 @@ namespace log {
 
 class Logger {
  public:
-  virtual void write(int target, const char* message) = 0;
+  virtual void write(int target, const const std::string& message) = 0;
 
   virtual ~Logger();
 
-  static std::string formatMessage(int target, const char* message,
-                                   const char* file, const char* func,
+  static std::string formatMessage(int target, const std::string& message,
+                                   const const std::string& file, const const std::string& func,
                                    int line);
   int getLogLevel() const;
   void setLogLevel(int level);

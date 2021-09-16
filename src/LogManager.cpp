@@ -40,8 +40,9 @@ void LogManager::disable() {
   _loggers.clear();
 }
 
-void LogManager::write(int target, const char* message, char* file,
-                       const char* func, int line) {
+void LogManager::write(int target, const std::string& message,
+                       const std::string& file, const std::string& func,
+                       int line) {
   auto msg = Logger::formatMessage(target, message, file, func, line);
   for (auto logger : _loggers) {
     logger->write(target, msg.c_str());
