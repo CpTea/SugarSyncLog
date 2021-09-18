@@ -1,20 +1,20 @@
 /**
- * @file LogTarget.h
+ * @file FileLogger.h
  * @author cptea
- * @brief 
+ * @brief
  * @version 1.0.0
- * @date 2021-09-14 
+ * @date 2021-09-14
  */
 
 #ifndef __SUGAR_SYNC_LOG_FILELOGGER_H__
 #define __SUGAR_SYNC_LOG_FILELOGGER_H__
 
-#include "Logger.h"
 #include <string>
+#include "Logger.h"
 
 namespace sugar {
-namespace sync {
 namespace log {
+namespace sync {
 class FileLogger : public Logger {
  public:
   FileLogger(int level);
@@ -26,8 +26,8 @@ class FileLogger : public Logger {
  private:
   std::string _storageDirectory;
 };
-}  // namespace log
 }  // namespace sync
+}  // namespace log
 }  // namespace sugar
 
 #endif

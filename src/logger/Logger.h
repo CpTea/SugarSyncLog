@@ -1,5 +1,5 @@
 /**
- * @file LogTarget.h
+ * @file Logger.h
  * @author cptea
  * @brief
  * @version 1.0.0
@@ -12,8 +12,8 @@
 #include <string>
 
 namespace sugar {
-namespace sync {
 namespace log {
+namespace sync {
 
 class Logger {
  public:
@@ -22,8 +22,10 @@ class Logger {
 
   virtual ~Logger();
 
-  static std::string formatMessage(int target, const std::string& message,
-                                   const std::string& file, const std::string& func,
+  static std::string formatMessage(int target,
+                                   const std::string& message,
+                                   const std::string& file,
+                                   const std::string& func,
                                    int line);
   int getLogLevel() const;
   void setLogLevel(int level);
@@ -31,7 +33,7 @@ class Logger {
  private:
   int _level;
 };
-}  // namespace log
 }  // namespace sync
+}  // namespace log
 }  // namespace sugar
 #endif

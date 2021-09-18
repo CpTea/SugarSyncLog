@@ -1,5 +1,5 @@
 /**
- * @file LogTarget.h
+ * @file LogManager.h
  * @author cptea
  * @brief
  * @version 1.0.0
@@ -12,13 +12,12 @@
 #include <vector>
 
 #include "SugarSyncLog.h"
-#include "common/LogLevel.h"
 #include "logger/Logger.h"
 
 namespace sugar {
 
-namespace sync {
 namespace log {
+namespace sync {
 
 class LogManager : public SugarSyncLog {
  public:
@@ -42,8 +41,8 @@ class LogManager : public SugarSyncLog {
   std::vector<Logger*> _loggers;
 };
 
-}  // namespace log
 }  // namespace sync
+}  // namespace log
 }  // namespace sugar
 
 #endif

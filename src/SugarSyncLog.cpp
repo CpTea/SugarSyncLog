@@ -11,5 +11,5 @@
 
 
 SugarSyncLog* manager() {
-	return sugar::sync::log::LogManager::getInstance();
+	return sugar::log::sync::LogManager::getInstance();
 }

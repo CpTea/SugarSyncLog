@@ -14,7 +14,7 @@
 #include <filesystem>
 #include <fstream>
 
-using namespace sugar::sync::log;
+using namespace sugar::log::sync;
 
 FileLogger::FileLogger(int level) {
   setLogLevel(level);

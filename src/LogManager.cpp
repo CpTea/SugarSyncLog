@@ -11,11 +11,9 @@
 #include <iostream>
 #include <typeinfo>
 
-#include "common/LogTarget.h"
-#include "common/LoggerType.h"
 #include "logger/FileLogger.h"
 
-using namespace sugar::sync::log;
+using namespace sugar::log::sync;
 
 LogManager::~LogManager() {
   disable();
@@ -44,13 +42,13 @@ void LogManager::disable() {
   _loggers.clear();
 }
 
-void sugar::sync::log::LogManager::setStorageDirectory(const std::string& dir) {
+void sugar::log::sync::LogManager::setStorageDirectory(const std::string& dir) {
     for (auto& logger : _loggers) {
         logger->setStorageDirectory(dir);
     }
 }
 
-void sugar::sync::log::LogManager::setLogLevel(int level) {
+void sugar::log::sync::LogManager::setLogLevel(int level) {
     for (auto& logger : _loggers) {
         logger->setLogLevel(level);
     }

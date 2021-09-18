@@ -11,7 +11,6 @@
  */
 
 #include "Logger.h"
-#include "Common/LogTarget.h"
 #include "SugarSyncLog.h"
 
 #include <chrono>
@@ -19,7 +18,7 @@
 #include <format>
 #include <unordered_map>
 
-using namespace sugar::sync::log;
+using namespace sugar::log::sync;
 
 const std::unordered_map<int, std::string> TargetCvtMap = {
     {TARGET_DEBUG, "DEBUG"}, {TARGET_INFO, "INFO"},   {TARGET_WARN, "WARN"},
