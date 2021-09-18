@@ -9,6 +9,7 @@
 #include "LogManager.h"
 
 #include <iostream>
+#include <typeinfo>
 
 #include "common/LogTarget.h"
 #include "common/LoggerType.h"
@@ -16,11 +17,13 @@
 
 using namespace sugar::sync::log;
 
-LogManager::~LogManager() { disable(); }
+LogManager::~LogManager() {
+  disable();
+}
 
-LogManager& LogManager::getInstance() {
+SugarSyncLog* LogManager::getInstance() {
   static LogManager instance;
-  return instance;
+  return &instance;
 }
 
 void LogManager::enable(int loggerType, int logLevel) {
@@ -35,20 +38,31 @@ void LogManager::enable(int loggerType, int logLevel) {
 
 void LogManager::disable() {
   for (int i = 0; i < _loggers.size(); ++i) {
-    if (_loggers[i]) delete _loggers[i];
+    if (_loggers[i])
+      delete _loggers[i];
   }
   _loggers.clear();
 }
 
-void LogManager::write(int target, const std::string& message,
-                       const std::string& file, const std::string& func,
+void sugar::sync::log::LogManager::setStorageDirectory(const std::string& dir) {
+    for (auto& logger : _loggers) {
+        logger->setStorageDirectory(dir);
+    }
+}
+
+void sugar::sync::log::LogManager::setLogLevel(int level) {
+    for (auto& logger : _loggers) {
+        logger->setLogLevel(level);
+    }
+}
+
+void LogManager::write(int target,
+                       const std::string& message,
+                       const std::string& file,
+                       const std::string& func,
                        int line) {
   auto msg = Logger::formatMessage(target, message, file, func, line);
   for (auto logger : _loggers) {
-    logger->write(target, msg.c_str());
+    logger->write(target, msg);
   }
-}
-
-void LogManager::writeDebug(const char* message) {
-  write(TARGET_DEBUG, message, 0, 0, 0);  // std::cout << message << std::endl;
 }

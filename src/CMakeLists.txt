@@ -3,36 +3,11 @@ set(global_include_dir ${${PROJECT_NAME}_SOURCE_DIR}/include)
 set(internal_include_dir ${${PROJECT_NAME}_SOURCE_DIR}/src)
 set(output_dir ${${PROJECT_NAME}_SOURCE_DIR}/bin)
 
-# add_executable(
-#     ${target_name}
-
-#     test.cpp
-
-#     ${global_include_dir}/SugarSyncLog.h
-#     SugarSyncLog.cpp
-
-#     common/FormatHelper.h
-#     common/FormatHelper.cpp
-#     common/LogTarget.h
-#     common/LogLevel.h
-#     common/LoggerType.h
-    
-#     logger/Logger.h
-#     logger/Logger.cpp
-#     logger/FileLogger.h
-#     logger/FileLogger.cpp
-    
-#     LogManager.h
-#     LogManager.cpp
-#     )
-
 add_library(
     ${target_name} SHARED
     ${global_include_dir}/SugarSyncLog.h
     SugarSyncLog.cpp
 
-    common/FormatHelper.h
-    common/FormatHelper.cpp
     common/LogTarget.h
     common/LogLevel.h
     common/LoggerType.h

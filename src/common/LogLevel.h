@@ -9,15 +9,6 @@
 #ifndef __LOGLEVEL_H__
 #define __LOGLEVEL_H__
 
-// enum class LogLevel {
-//   Off,
-//   Fatal,
-//   Error,
-//   Warning,
-//   Info,
-//   Debug,
-// };
-
 #define LEVEL_NONE 0x00
 #define LEVEL_FATAL 0x01
 #define LEVEL_ERROR 0x02

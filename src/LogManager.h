@@ -22,10 +22,16 @@ namespace log {
 
 class LogManager : public SugarSyncLog {
  public:
-  static LogManager& getInstance();
+  static SugarSyncLog* getInstance();
   void enable(int loggerType, int logLevel) override;
   void disable() override;
-  void writeDebug(const char* message) override;
+  void setStorageDirectory(const std::string& dir) override;
+  void setLogLevel(int level) override;
+  void write(int target,
+             const std::string& message,
+             const std::string& file,
+             const std::string& func,
+             int line) override;
 
  private:
   ~LogManager();
@@ -33,16 +39,11 @@ class LogManager : public SugarSyncLog {
   LogManager(const LogManager&) = delete;
   LogManager& operator=(const LogManager&) = delete;
 
-  void write(int target, const std::string& message, const std::string& file,
-             const std::string& func, int line);
-
   std::vector<Logger*> _loggers;
 };
 
 }  // namespace log
 }  // namespace sync
 }  // namespace sugar
-
-// sugar::sync::log::Logger::~Logger(){}
 
 #endif

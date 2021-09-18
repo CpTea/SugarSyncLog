@@ -10,6 +10,7 @@
 #define __SUGAR_SYNC_LOG_FILELOGGER_H__
 
 #include "Logger.h"
+#include <string>
 
 namespace sugar {
 namespace sync {
@@ -18,8 +19,8 @@ class FileLogger : public Logger {
  public:
   FileLogger(int level);
   void write(int target, const std::string& message) override;
+  void setStorageDirectory(const std::string& directory) override;
 
-  void setStorageDirectory(const std::string& directory);
   std::string getSotrageDirectory() const;
 
  private:

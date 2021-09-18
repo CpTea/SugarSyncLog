@@ -14,18 +14,15 @@
 #include <filesystem>
 #include <fstream>
 
-#include "common/FormatHelper.h"
-
 using namespace sugar::sync::log;
 
 FileLogger::FileLogger(int level) {
   setLogLevel(level);
   setStorageDirectory(".");
-  // setStorageDirectory(".");
 }
 
 void FileLogger::write(int target, const std::string& message) {
-  if (target < getLogLevel()) return;
+  if (target > getLogLevel()) return;
   auto filename = getSotrageDirectory() +
                   std::format("{:%F}", std::chrono::system_clock::now()) + ".log";
   std::ofstream outputFileSteam(filename, std::ios::app);
