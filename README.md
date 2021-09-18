@@ -60,7 +60,7 @@ SugarLogFatal("Hello World");
 
 [*0x04*] **LEVEL_INFO**： 记录目标等级为一般及以上的信息
 
-[*0x04*] **LEVEL_DEBUG**：记录目标等级为调试及以上的信息
+[*0x05*] **LEVEL_DEBUG**：记录目标等级为调试及以上的信息
 
 + 目标等级
 
@@ -72,7 +72,7 @@ SugarLogFatal("Hello World");
 
 [*0x04*] **TARGET_INFO**：  一般等级
 
-[*0x04*] **TARGET_DEBUG**： 调试等级
+[*0x05*] **TARGET_DEBUG**： 调试等级
 
 ## 其他
 
