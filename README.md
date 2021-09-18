@@ -90,3 +90,7 @@ SugarLogSetLogLevel(LEVEL_NONE);
 ```
 SugarLogSetStorageDirectory("/new/path/to/log");
 ```
+
+# TODO
+
+- [x] 实现ConsoleLogger
